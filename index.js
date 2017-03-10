@@ -38,7 +38,7 @@ module.exports = postcss.plugin('postcss-ms-unit', function (opts) {
 
             rule.walkDecls('font-size', function (decl, i) {
 
-                if (decl.value.match(/^\d+ms$/)) {
+                if (decl.value.match(/^\-?\d+ms$/)) {
                     var val = parseInt(decl.value);
                     decl.cloneBefore({ prop: 'font-size', value: ms(val) });
                     decl.remove();
